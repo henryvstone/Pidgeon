@@ -5,9 +5,29 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
-  <backgrounds name="background"/>
+  <sprites name="sprites">
+    <sprite>sprites\sprite_food</sprite>
+    <sprite>sprites\sprite_pidgeon1</sprite>
+    <sprite>sprites\sprite_pidgeon2</sprite>
+    <sprite>sprites\sprite_pidgeon3</sprite>
+    <sprite>sprites\sprite_pidgeon4</sprite>
+    <sprite>sprites\sprite_npc</sprite>
+    <sprite>sprites\sprite_animal_control</sprite>
+    <sprite>sprites\sprite_enemy</sprite>
+    <sprite>sprites\sprite_gun</sprite>
+  </sprites>
+  <backgrounds name="background">
+    <background>background\background_level1</background>
+  </backgrounds>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\object_pidgeon</object>
+    <object>objects\object_food</object>
+    <object>objects\object_npc</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\room0</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
