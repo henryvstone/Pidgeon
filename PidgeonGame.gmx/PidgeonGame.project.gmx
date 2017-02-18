@@ -15,6 +15,7 @@
     <sprite>sprites\sprite_animal_control</sprite>
     <sprite>sprites\sprite_enemy</sprite>
     <sprite>sprites\sprite_gun</sprite>
+    <sprite>sprites\sprite_cant_walk</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_level1</background>
@@ -24,6 +25,7 @@
     <object>objects\object_pidgeon</object>
     <object>objects\object_food</object>
     <object>objects\object_npc</object>
+    <object>objects\object_cant_walk</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
