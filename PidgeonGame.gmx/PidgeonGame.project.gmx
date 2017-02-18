@@ -16,11 +16,16 @@
     <sprite>sprites\sprite_enemy</sprite>
     <sprite>sprites\sprite_gun</sprite>
     <sprite>sprites\sprite_cant_walk</sprite>
+    <sprite>sprites\sprite_spawner_right</sprite>
+    <sprite>sprites\sprite_spawner_left</sprite>
+    <sprite>sprites\sprite_redir</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_level1</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\path0</path>
+  </paths>
   <objects name="objects">
     <object>objects\object_pidgeon</object>
     <object>objects\object_food</object>
@@ -28,7 +33,12 @@
     <object>objects\object_npc_person</object>
     <object>objects\object_npc_enemy</object>
     <object>objects\object_cant_walk</object>
-    <object>objects\obj_npc_spawner</object>
+    <objects name="spawnerObjects">
+      <object>objects\obj_npc_spawner</object>
+      <object>objects\obj_spawner_left</object>
+      <object>objects\obj_spawner_right</object>
+    </objects>
+    <object>objects\obj_sprtie_redir</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
