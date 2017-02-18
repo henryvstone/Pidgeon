@@ -30,7 +30,7 @@
 minTime = 8;
 maxTime = 30;
 
-time = random(maxTime - minTime) + minTime;
+time = random(maxTime - minTime);
 </string>
           </argument>
         </arguments>

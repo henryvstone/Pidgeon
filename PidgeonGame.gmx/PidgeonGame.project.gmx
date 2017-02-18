@@ -12,6 +12,8 @@
     <sprite>sprites\sprite_pidgeon3</sprite>
     <sprite>sprites\sprite_pidgeon4</sprite>
     <sprite>sprites\sprite_npc</sprite>
+    <sprite>sprites\sprite_npc2</sprite>
+    <sprite>sprites\sprite_npc3</sprite>
     <sprite>sprites\sprite_animal_control</sprite>
     <sprite>sprites\sprite_enemy</sprite>
     <sprite>sprites\sprite_gun</sprite>

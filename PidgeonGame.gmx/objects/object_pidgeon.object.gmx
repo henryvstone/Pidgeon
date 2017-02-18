@@ -34,6 +34,9 @@ pz = 0; //starting position z, currently not implemented
 moveSpeed = 200; //pixels per second
 charge = 0; //starting charge
 decharge = 0.01; //amount of decrease per second, 1 is max charge 0 is no charge
+
+global.level = 0;
+sprite_base = sprite_index;
 </string>
           </argument>
         </arguments>
@@ -71,7 +74,6 @@ if(moveUp){ud -= 1;}
 
 if(lr != 0 or ud != 0){
     var sp = delta_time / 1000000 * moveSpeed / sqrt(lr * lr + ud * ud);
-    show_debug_message(sp);
     
     px += lr * sp;
     py += ud * sp;
@@ -90,6 +92,11 @@ if(place_meeting(px, y, object_cant_walk)){
 }
 
 charge -= delta_time / 1000000 * decharge;
+
+if(charge &gt; 1){
+    sprite_index++;
+    charge = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -139,7 +146,12 @@ with(other){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>charge += 0.1;
+            <string>charge += 0.15 * power(0.7, global.level);
+if(charge &gt;= 1){
+    charge = 0;
+    global.level++;
+    sprite_index = sprite_base + global.level;
+}
 with(other){
     instance_destroy();
 }
@@ -166,15 +178,20 @@ with(other){
           <argument>
             <kind>1</kind>
             <string>draw_self();
-var ux = -50;
-var uy = -50;
-var width = 100;
+var ux = 0;
+var uy = window_get_height() - 20;
+var width = window_get_width();
 var height  = 20;
 
-draw_set_colour(make_colour_rgb(0, 255, 0));
-draw_rectangle(x + ux, y + uy, x + ux + (width * charge), y + uy + height, false);
+
+draw_set_colour(make_colour_rgb(150, 0, 0));
+draw_rectangle(ux, uy, ux + (width * (charge + 1) / 5), uy + height, false);
 draw_set_colour(make_colour_rgb(0, 0, 0));
-draw_rectangle(x + ux, y + uy, x + ux + width, y + uy + height, true);
+draw_rectangle(ux, uy, ux + width, uy + height, true);
+
+for(var i = 0;i &lt;= 4;i++){
+    draw_line(ux + (width * (i + 1) / 5), uy, ux + (width * (i + 1) / 5), uy + height);
+}
 </string>
           </argument>
         </arguments>
