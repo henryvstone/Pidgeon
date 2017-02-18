@@ -16,6 +16,7 @@
     <sprite>sprites\sprite_enemy</sprite>
     <sprite>sprites\sprite_gun</sprite>
     <sprite>sprites\sprite_cant_walk</sprite>
+    <sprite>sprites\spr_bullet</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_level1</background>
@@ -29,6 +30,7 @@
     <object>objects\object_npc_enemy</object>
     <object>objects\object_cant_walk</object>
     <object>objects\obj_npc_spawner</object>
+    <object>objects\obj_bullet</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
