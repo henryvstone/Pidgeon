@@ -122,10 +122,9 @@ if(place_meeting(px, y, object_cant_walk)){
 
 charge -= delta_time / 1000000 * decharge;
 
-if(charge &gt; 1){
-    sprite_index++;
-    charge = 0;
-}
+global.level = floor(charge);
+sprite_index = sprite_base + global.level;
+
 </string>
           </argument>
         </arguments>
@@ -203,11 +202,7 @@ if (!is_jumping) {
           <argument>
             <kind>1</kind>
             <string>charge += 0.15 * power(0.7, global.level);
-if(charge &gt;= 1){
-    charge = 0;
-    global.level++;
-    sprite_index = sprite_base + global.level;
-}
+
 with(other){
     instance_destroy();
 }
