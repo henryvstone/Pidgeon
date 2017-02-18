@@ -34,6 +34,35 @@ pz = 0; //starting position z, currently not implemented
 moveSpeed = 200; //pixels per second
 charge = 0; //starting charge
 decharge = 0.01; //amount of decrease per second, 1 is max charge 0 is no charge
+
+jump_duration = 0.25 * room_speed; // How long a jump should go for
+is_jumping = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// No more jumping
+image_angle = 0;
+is_jumping = false;
+pz = 0;
 </string>
           </argument>
         </arguments>
@@ -71,7 +100,6 @@ if(moveUp){ud -= 1;}
 
 if(lr != 0 or ud != 0){
     var sp = delta_time / 1000000 * moveSpeed / sqrt(lr * lr + ud * ud);
-    show_debug_message(sp);
     
     px += lr * sp;
     py += ud * sp;
@@ -90,6 +118,30 @@ if(place_meeting(px, y, object_cant_walk)){
 }
 
 charge -= delta_time / 1000000 * decharge;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Jump animation
+if (is_jumping) {
+    image_angle = random(360);
+}
 </string>
           </argument>
         </arguments>
@@ -113,9 +165,12 @@ charge -= delta_time / 1000000 * decharge;
           <argument>
             <kind>1</kind>
             <string>/// Lose charge upon hit of bullet
-charge -= 0.05;
-with(other){
-    instance_destroy();
+
+if (!is_jumping) {
+    charge -= 0.05;
+    with(other){
+        instance_destroy();
+    }
 }
 </string>
           </argument>
@@ -175,6 +230,35 @@ draw_set_colour(make_colour_rgb(0, 255, 0));
 draw_rectangle(x + ux, y + uy, x + ux + (width * charge), y + uy + height, false);
 draw_set_colour(make_colour_rgb(0, 0, 0));
 draw_rectangle(x + ux, y + uy, x + ux + width, y + uy + height, true);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Jump mechanics
+
+if (!is_jumping) {
+    alarm[0] = jump_duration;
+    pz = 1;
+    is_jumping = true;
+}
 </string>
           </argument>
         </arguments>
