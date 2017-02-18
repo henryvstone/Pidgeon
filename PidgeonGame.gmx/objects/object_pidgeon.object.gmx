@@ -37,6 +37,35 @@ decharge = 0.01; //amount of decrease per second, 1 is max charge 0 is no charge
 
 global.level = 0;
 sprite_base = sprite_index;
+
+jump_duration = 0.25 * room_speed; // How long a jump should go for
+is_jumping = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// No more jumping
+image_angle = 0;
+is_jumping = false;
+pz = 0;
 </string>
           </argument>
         </arguments>
@@ -101,6 +130,30 @@ if(charge &gt; 1){
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Jump animation
+if (is_jumping) {
+    image_angle = random(360);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="object_bullet">
       <action>
@@ -120,9 +173,12 @@ if(charge &gt; 1){
           <argument>
             <kind>1</kind>
             <string>/// Lose charge upon hit of bullet
-charge -= 0.05;
-with(other){
-    instance_destroy();
+
+if (!is_jumping) {
+    charge -= 0.05;
+    with(other){
+        instance_destroy();
+    }
 }
 </string>
           </argument>
@@ -191,6 +247,35 @@ draw_rectangle(ux, uy, ux + width, uy + height, true);
 
 for(var i = 0;i &lt;= 4;i++){
     draw_line(ux + (width * (i + 1) / 5), uy, ux + (width * (i + 1) / 5), uy + height);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Jump mechanics
+
+if (!is_jumping) {
+    alarm[0] = jump_duration;
+    pz = 1;
+    is_jumping = true;
 }
 </string>
           </argument>
