@@ -27,12 +27,13 @@
             <kind>1</kind>
             <string>/// Variable Creation
 
-px = 0;
-py = 0;
-pz = 0;
+px = 0; //starting position x
+py = 0; //starting position y
+pz = 0; //starting position z, currently not implemented
 
-moveSpeed = 200;
-charge = 0;
+moveSpeed = 200; //pixels per second
+charge = 0; //starting charge
+decharge = 0.01; //amount of decrease per second, 1 is max charge 0 is no charge
 </string>
           </argument>
         </arguments>
@@ -87,6 +88,8 @@ if(place_meeting(px, y, object_cant_walk)){
 }else{
     x = px;
 }
+
+charge -= delta_time / 1000000 * decharge;
 </string>
           </argument>
         </arguments>
@@ -109,7 +112,7 @@ if(place_meeting(px, y, object_cant_walk)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>charge += 1;
+            <string>charge += 0.1;
 with(other){
     instance_destroy();
 }
@@ -142,7 +145,7 @@ var width = 100;
 var height  = 20;
 
 draw_set_colour(make_colour_rgb(0, 255, 0));
-draw_rectangle(x + ux, y + uy, x + ux + (width * charge / 10), y + uy + height, false);
+draw_rectangle(x + ux, y + uy, x + ux + (width * charge), y + uy + height, false);
 draw_set_colour(make_colour_rgb(0, 0, 0));
 draw_rectangle(x + ux, y + uy, x + ux + width, y + uy + height, true);
 </string>
