@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>/// Initialize variables
 
-shoot_delay = 20;
+shoot_speed = 0.8; // Lower value = faster
+shoot_delay = shoot_speed * room_speed;
 alarm[0] = shoot_delay;
 //path_start(path_test, 5, path_action_continue, false);
 own_gun = instance_create(x, y, object_gun);
