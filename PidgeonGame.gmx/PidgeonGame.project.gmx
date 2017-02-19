@@ -21,7 +21,9 @@
   <backgrounds name="background">
     <background>background\background_level1</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\path_test</path>
+  </paths>
   <objects name="objects">
     <object>objects\object_pidgeon</object>
     <object>objects\object_food</object>
@@ -30,7 +32,8 @@
     <object>objects\object_npc_enemy</object>
     <object>objects\object_cant_walk</object>
     <object>objects\obj_npc_spawner</object>
-    <object>objects\obj_bullet</object>
+    <object>objects\object_bullet</object>
+    <object>objects\object_gun</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

@@ -95,7 +95,7 @@ charge -= delta_time / 1000000 * decharge;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_bullet">
+    <event eventtype="4" ename="object_bullet">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -113,7 +113,7 @@ charge -= delta_time / 1000000 * decharge;
           <argument>
             <kind>1</kind>
             <string>/// Lose charge upon hit of bullet
-charge -= 0.1;
+charge -= 0.05;
 with(other){
     instance_destroy();
 }
