@@ -88,9 +88,9 @@ new_bullet.direction = point_direction(x, y, object_pidgeon.x, object_pidgeon.y)
             <string>/// Kill me RIP
 
 instance_destroy();
-with (own_gun) {
-    instance_destroy();
-}
+// with (own_gun) {
+//     instance_destroy();
+// }
 </string>
           </argument>
         </arguments>

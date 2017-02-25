@@ -6,7 +6,8 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprite_food</sprite>
+    <sprite>sprites\sprite_food1</sprite>
+    <sprite>sprites\sprite_food2</sprite>
     <sprite>sprites\sprite_pidgeon1</sprite>
     <sprite>sprites\sprite_pidgeon2</sprite>
     <sprite>sprites\sprite_pidgeon3</sprite>
@@ -23,12 +24,18 @@
     <sprite>sprites\sprite_spawner_left</sprite>
     <sprite>sprites\sprite_redir</sprite>
     <sprite>sprites\spr_bullet</sprite>
+    <sprite>sprites\sprite_lamp</sprite>
+    <sprite>sprites\sprite_bin</sprite>
+    <sprite>sprites\sprite_fence</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_level1</background>
     <background>background\background1</background>
   </backgrounds>
   <paths name="paths"/>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shader0.shader</shader>
+  </shaders>
   <objects name="objects">
     <object>objects\object_pidgeon</object>
     <object>objects\object_food</object>
@@ -44,6 +51,9 @@
     <object>objects\obj_sprtie_redir</object>
     <object>objects\object_bullet</object>
     <object>objects\object_gun</object>
+    <object>objects\object_lamp</object>
+    <object>objects\object_bin</object>
+    <object>objects\object_fence</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
