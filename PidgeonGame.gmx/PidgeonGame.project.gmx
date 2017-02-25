@@ -12,6 +12,7 @@
     <sprite>sprites\sprite_pidgeon2</sprite>
     <sprite>sprites\sprite_pidgeon3</sprite>
     <sprite>sprites\sprite_pidgeon4</sprite>
+    <sprite>sprites\sprite_pidgeon5</sprite>
     <sprite>sprites\sprite_npc</sprite>
     <sprite>sprites\sprite_npc2</sprite>
     <sprite>sprites\sprite_npc3</sprite>
@@ -30,6 +31,7 @@
     <sprite>sprites\sprite_car1</sprite>
     <sprite>sprites\sprite_car2</sprite>
     <sprite>sprites\sprite_car3</sprite>
+    <sprite>sprites\sprite_gameover</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_level1</background>
@@ -60,6 +62,7 @@
     <object>objects\object_lamp</object>
     <object>objects\object_bin</object>
     <object>objects\object_fence</object>
+    <object>objects\object_cant_jump</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

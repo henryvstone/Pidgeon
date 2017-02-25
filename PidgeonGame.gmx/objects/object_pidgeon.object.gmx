@@ -27,15 +27,16 @@
             <kind>1</kind>
             <string>/// Variable Creation
 
-px = 0; //starting position x
-py = 0; //starting position y
+px = room_width / 2; //starting position x
+py = room_height / 2; //starting position y
 pz = 0; //starting position z, currently not implemented
 
 moveSpeed = 200; //pixels per second
-charge = 0; //starting charge
+charge = -0.5; //starting charge
 decharge = 0.01; //amount of decrease per second, 1 is max charge 0 is no charge
 
 global.level = 0;
+global.gameover = false;
 sprite_base = sprite_index;
 
 jump_duration = 0.25 * room_speed; // How long a jump should go for
@@ -131,6 +132,12 @@ var ud = 0;
 if(moveDown){ud += 1;}
 if(moveUp){ud -= 1;}
 
+// Check game over
+if (global.gameover) {
+    lr = 0;
+    ud = 0;
+}
+
 // Moving
 if(lr != 0 or ud != 0){
     var sp = delta_time / 1000000 * moveSpeed / sqrt(lr * lr + ud * ud);
@@ -148,6 +155,18 @@ if(place_meeting(x, py, object_cant_walk) &amp;&amp; pz = 0){
 }
 
 if(place_meeting(px, y, object_cant_walk) &amp;&amp; pz = 0){
+    px = x;
+}else{
+    x = px;
+}
+
+if(place_meeting(x, py, object_cant_jump)){
+    py = y;
+}else{
+    y = py;
+}
+
+if(place_meeting(px, y, object_cant_jump)){
     px = x;
 }else{
     x = px;
@@ -202,21 +221,52 @@ if (is_jumping) {
             <kind>1</kind>
             <string>/// Update level and sprite
 
-global.level = floor(charge);
-
-if (global.level &lt; 0) {
+if (charge &gt;= -1 &amp;&amp; charge &lt; 0) {
+    global.level = 0;
     sprite_index = sprite_base ;
-} else if (global.level &gt;= 0 &amp;&amp; global.level &lt; 1) {
+} else if (charge &gt;= 0 &amp;&amp; charge &lt; 1) {
+    global.level = 1;
     sprite_index = sprite_base + 1;
-} else if (global.level &gt;= 1 &amp;&amp; global.level &lt; 2) {
+} else if (charge &gt;= 1 &amp;&amp; charge  &lt; 2) {
+    global.level = 2;
     sprite_index = sprite_base + 2;
-} else if (global.level &gt;= 2) {
+} else if (charge &gt;= 2) {
+    global.level = 3;
     sprite_index = sprite_base + 3;
+} else if (charge &lt;= -1) {
+    global.level = -1
+    global.gameover = true;
+    sprite_index = sprite_base + 4;
 } else {
     sprite_index = sprite_base;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Press R to restart
 
-show_debug_message(global.level);
+var restart_key = keyboard_check_pressed(ord("R"));
+
+if (restart_key &amp;&amp; global.gameover) {
+    game_restart();
+}
 </string>
           </argument>
         </arguments>
@@ -338,6 +388,11 @@ draw_rectangle(ux, uy, ux + width, uy + height, true);
 for(var i = 0;i &lt;= 4;i++){
     draw_line(ux + (width * (i + 1) / 5), uy, ux + (width * (i + 1) / 5), uy + height);
 }
+
+if (charge &lt;= -1) {
+    draw_sprite(sprite_gameover, -1, room_width / 2, room_height / 2);
+}
+
 </string>
           </argument>
         </arguments>
