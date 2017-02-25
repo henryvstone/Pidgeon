@@ -34,6 +34,7 @@ pz = 0; //starting position z, currently not implemented
 moveSpeed = 200; //pixels per second
 charge = -0.5; //starting charge
 decharge = 0.01; //amount of decrease per second, 1 is max charge 0 is no charge
+evil = 0;
 
 global.level = 0;
 global.gameover = false;
@@ -150,29 +151,17 @@ if(lr != 0 or ud != 0){
 
 
 // Collisions
-if(place_meeting(x, py, object_cant_walk) &amp;&amp; pz = 0){
+if((place_meeting(x, py, object_cant_walk) &amp;&amp; !is_jumping) || place_meeting(x, py, object_cant_jump)){
     py = y;
 }else{
     y = py;
 }
 
-if(place_meeting(px, y, object_cant_walk) &amp;&amp; pz = 0){
+if((place_meeting(px, y, object_cant_walk) &amp;&amp; !is_jumping) || place_meeting(px, y, object_cant_jump)){
     px = x;
 }else{
     x = px;
-}
-
-if(place_meeting(x, py, object_cant_jump)){
-    py = y;
-}else{
-    y = py;
-}
-
-if(place_meeting(px, y, object_cant_jump)){
-    px = x;
-}else{
-    x = px;
-}
+} 
 
 charge -= delta_time / 1000000 * decharge;
 

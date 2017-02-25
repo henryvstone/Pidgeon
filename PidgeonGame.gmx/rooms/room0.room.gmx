@@ -60,7 +60,7 @@
     <instance objName="obj_spawner_left" x="1062" y="626" name="inst_31950175" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_left" x="1064" y="180" name="inst_5F1D5B70" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_right" x="-50" y="182" name="inst_1756E02E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object_lamp" x="114" y="556" name="inst_F386A0D1" locked="0" code="" scaleX="0.523605167865753" scaleY="0.609195411205292" colour="4294967295" rotation="0"/>
+    <instance objName="object_lamp" x="94" y="700" name="inst_F386A0D1" locked="0" code="" scaleX="0.523605167865753" scaleY="0.609195411205292" colour="4294967295" rotation="0"/>
     <instance objName="object_bin" x="876" y="504" name="inst_691C9775" locked="0" code="" scaleX="0.709999978542328" scaleY="0.652849733829498" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="70" y="388" name="inst_E5A2CF90" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="70" y="388" name="inst_63768DA7" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
@@ -71,7 +71,10 @@
     <instance objName="object_fence" x="776" y="390" name="inst_AA633BAC" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_right_car" x="-184" y="312" name="inst_CC47B06F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_left_car" x="1064" y="248" name="inst_709AEE96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object_cant_jump" x="-22" y="-20" name="inst_74FBA1BA" locked="0" code="" scaleX="33.5625" scaleY="4.30999994277954" colour="4294967295" rotation="0"/>
+    <instance objName="object_cant_jump" x="-22" y="-58" name="inst_82E0B9E4" locked="0" code="" scaleX="34.0625" scaleY="5.9375" colour="4294967295" rotation="0"/>
+    <instance objName="object_cant_jump" x="-48" y="90" name="inst_AB7BA627" locked="0" code="" scaleX="1.19000005722046" scaleY="22" colour="4294967295" rotation="0"/>
+    <instance objName="object_cant_jump" x="1032" y="106" name="inst_7161B534" locked="0" code="" scaleX="0.875" scaleY="21.5" colour="4294967295" rotation="0"/>
+    <instance objName="object_cant_jump" x="-8" y="774" name="inst_D860612B" locked="0" code="" scaleX="32.8125" scaleY="1.1875" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
