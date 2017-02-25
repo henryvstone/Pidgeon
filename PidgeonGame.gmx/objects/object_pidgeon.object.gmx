@@ -66,6 +66,7 @@ is_jumping = false;
 image_angle = 0;
 is_jumping = false;
 pz = 0;
+moveSpeed = 0.25*moveSpeed;
 </string>
           </argument>
         </arguments>
@@ -89,18 +90,24 @@ pz = 0;
           <argument>
             <kind>1</kind>
             <string>///Movement
+
+// Movement Keys
 var moveUp = keyboard_check(ord("W"));
 var moveDown = keyboard_check(ord("S"));
 var moveLeft = keyboard_check(ord("A"));
 var moveRight = keyboard_check(ord("D"));
 
+// Left-Right
 var lr = 0;
 if(moveLeft){lr -= 1;}
 if(moveRight){lr += 1;}
+
+// Up-Down
 var ud = 0;
 if(moveDown){ud += 1;}
 if(moveUp){ud -= 1;}
 
+// Moving
 if(lr != 0 or ud != 0){
     var sp = delta_time / 1000000 * moveSpeed / sqrt(lr * lr + ud * ud);
     
@@ -108,19 +115,22 @@ if(lr != 0 or ud != 0){
     py += ud * sp;
 }
 
-if(place_meeting(x, py, object_cant_walk)){
+
+// Collisions
+if(place_meeting(x, py, object_cant_walk) &amp;&amp; pz = 0){
     py = y;
 }else{
     y = py;
 }
 
-if(place_meeting(px, y, object_cant_walk)){
+if(place_meeting(px, y, object_cant_walk) &amp;&amp; pz = 0){
     px = x;
 }else{
     x = px;
 }
 
 charge -= delta_time / 1000000 * decharge;
+
 
 </string>
           </argument>
@@ -303,6 +313,7 @@ if (!is_jumping) {
     alarm[0] = jump_duration;
     pz = 1;
     is_jumping = true;
+    moveSpeed = 4*moveSpeed;
 }
 </string>
           </argument>
