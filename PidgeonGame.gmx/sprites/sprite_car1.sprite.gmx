@@ -2,24 +2,24 @@
 <sprite>
   <type>0</type>
   <xorig>0</xorig>
-  <yorigin>136</yorigin>
+  <yorigin>115</yorigin>
   <colkind>1</colkind>
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>0</bbox_left>
-  <bbox_right>68</bbox_right>
-  <bbox_top>0</bbox_top>
-  <bbox_bottom>137</bbox_bottom>
+  <bbox_left>14</bbox_left>
+  <bbox_right>184</bbox_right>
+  <bbox_top>22</bbox_top>
+  <bbox_bottom>116</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>69</width>
-  <height>138</height>
+  <width>200</width>
+  <height>141</height>
   <frames>
-    <frame index="0">images\sprite_npc3_0.png</frame>
+    <frame index="0">images\sprite_car1_0.png</frame>
   </frames>
 </sprite>

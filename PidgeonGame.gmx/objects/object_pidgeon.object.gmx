@@ -40,6 +40,30 @@ sprite_base = sprite_index;
 
 jump_duration = 0.25 * room_speed; // How long a jump should go for
 is_jumping = false;
+can_be_hit = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>can_be_hit = true;
 </string>
           </argument>
         </arguments>
@@ -193,6 +217,33 @@ if (global.level &lt; 0) {
 }
 
 show_debug_message(global.level);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="object_npc_car">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (!is_jumping &amp;&amp; can_be_hit) {
+    charge -= 1.00;
+    can_be_hit = false;
+    alarm[1] = 100;
+}
 </string>
           </argument>
         </arguments>

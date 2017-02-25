@@ -27,6 +27,9 @@
     <sprite>sprites\sprite_lamp</sprite>
     <sprite>sprites\sprite_bin</sprite>
     <sprite>sprites\sprite_fence</sprite>
+    <sprite>sprites\sprite_car1</sprite>
+    <sprite>sprites\sprite_car2</sprite>
+    <sprite>sprites\sprite_car3</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_level1</background>
@@ -41,12 +44,15 @@
     <object>objects\object_food</object>
     <object>objects\object_npc</object>
     <object>objects\object_npc_person</object>
+    <object>objects\object_npc_car</object>
     <object>objects\object_npc_enemy</object>
     <object>objects\object_cant_walk</object>
     <objects name="spawnerObjects">
       <object>objects\obj_npc_spawner</object>
       <object>objects\obj_spawner_left</object>
+      <object>objects\obj_spawner_left_car</object>
       <object>objects\obj_spawner_right</object>
+      <object>objects\obj_spawner_right_car</object>
     </objects>
     <object>objects\obj_sprtie_redir</object>
     <object>objects\object_bullet</object>
