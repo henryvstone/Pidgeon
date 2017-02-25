@@ -14,7 +14,8 @@
     <sprite>sprites\sprite_npc</sprite>
     <sprite>sprites\sprite_npc2</sprite>
     <sprite>sprites\sprite_npc3</sprite>
-    <sprite>sprites\sprite_animal_control</sprite>
+    <sprite>sprites\sprite_control1</sprite>
+    <sprite>sprites\sprite_control2</sprite>
     <sprite>sprites\sprite_enemy</sprite>
     <sprite>sprites\sprite_gun</sprite>
     <sprite>sprites\sprite_cant_walk</sprite>
@@ -25,6 +26,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\background_level1</background>
+    <background>background\background1</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">

@@ -82,9 +82,16 @@ time -= delta_time / 1000000;
 
 //if triggered
 if(time &lt; 0){
-    with(instance_create(x, y, object_npc_person)){
-        vx = other.vx;
-        vy = other.vy;
+    if global.level &gt;= 9 {
+        with(instance_create(x, y, object_npc_enemy)){
+            vx = other.vx;
+            vy = other.vy;
+        }
+    } else {
+        with(instance_create(x, y, object_npc_person)){
+            vx = other.vx;
+            vy = other.vy;
+        }
     }
     //reset time
     time = random(maxTime - minTime) + minTime;

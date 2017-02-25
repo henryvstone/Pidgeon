@@ -77,9 +77,9 @@ y += vy * delta_time / 1000000;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>    ///change direction
+            <string>///change direction
     
-    //current speed
+//current speed
     
 collided -= delta_time / 1000000;
     
