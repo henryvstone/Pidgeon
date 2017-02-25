@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>visible = true;
-depth = -999999;
+depth = -y;
 </string>
           </argument>
         </arguments>
