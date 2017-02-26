@@ -31,7 +31,9 @@ px = room_width / 2; //starting position x
 py = room_height / 2; //starting position y
 pz = 0; //starting position z, currently not implemented
 
-moveSpeed = 200; //pixels per second
+moveSpeed = 300; // pixels per second
+defaultMoveSpeed = 300;
+defaultJumpSpeed = 600;
 charge = -0.5; //starting charge
 decharge = 0.01; //amount of decrease per second, 1 is max charge 0 is no charge
 evil = 0;
@@ -44,7 +46,35 @@ jump_duration = 0.25 * room_speed; // How long a jump should go for
 is_jumping = false;
 can_be_hit = true;
 
+car_hit_delay = 100;
+
+can_peck = true;
+peck_delay = 60;
+
 depth = y;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>can_peck = true;
 </string>
           </argument>
         </arguments>
@@ -94,7 +124,7 @@ depth = y;
 image_angle = 0;
 is_jumping = false;
 pz = 0;
-moveSpeed = 0.25*moveSpeed;
+moveSpeed = defaultMoveSpeed;
 </string>
           </argument>
         </arguments>
@@ -306,7 +336,40 @@ depth = -y;
             <string>if (!is_jumping &amp;&amp; can_be_hit) {
     charge -= 1.00;
     can_be_hit = false;
-    alarm[1] = 100;
+    alarm[1] = car_hit_delay;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="object_npc_enemy">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Pecking
+
+if (is_jumping &amp;&amp; can_peck) {
+    with (other) {
+        will_shoot = false;
+        vx = vx * 2;
+        vy = vy * 2;
+    }
+    can_peck = false;
+    alarm[2] = peck_delay;
 }
 </string>
           </argument>
@@ -337,6 +400,43 @@ if (!is_jumping) {
     with(other){
         instance_destroy();
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="object_npc_person">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Pecking
+
+if (is_jumping &amp;&amp; can_peck) {
+    with (other) {
+        var dist = 50;
+        var foodnum = irandom(2) + 3;
+        for(var i = 0;i &lt; foodnum;i++){
+            instance_create(x + random(dist * 2) - dist, y + random(dist * 2) - dist, object_food);
+        }
+        vx = vx * 2;
+        vy = vy * 2;
+    }
+    can_peck = false;
+    alarm[2] = peck_delay;
 }
 </string>
           </argument>
@@ -435,7 +535,7 @@ if (!is_jumping) {
     alarm[0] = jump_duration;
     pz = 1;
     is_jumping = true;
-    moveSpeed = 4*moveSpeed;
+    moveSpeed = defaultJumpSpeed;
 }
 </string>
           </argument>

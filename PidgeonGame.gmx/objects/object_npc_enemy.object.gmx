@@ -36,6 +36,8 @@ shoot_delay = shoot_speed * room_speed;
 alarm[1] = shoot_delay;
 //path_start(path_test, 5, path_action_continue, false);
 // own_gun = instance_create(x, y, object_gun);
+
+will_shoot = true;
 </string>
           </argument>
         </arguments>
@@ -60,9 +62,11 @@ alarm[1] = shoot_delay;
             <kind>1</kind>
             <string>/// Shoot a bullet
 
-alarm[1] = shoot_delay;
-var new_bullet = instance_create(x, y, object_bullet);
-new_bullet.direction = point_direction(x, y, object_pidgeon.x, object_pidgeon.y);
+if (will_shoot) {
+    alarm[1] = shoot_delay;
+    var new_bullet = instance_create(x, y, object_bullet);
+    new_bullet.direction = point_direction(x, y, object_pidgeon.x, object_pidgeon.y);
+}
 </string>
           </argument>
         </arguments>
