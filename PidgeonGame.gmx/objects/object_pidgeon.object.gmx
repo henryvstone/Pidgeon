@@ -460,7 +460,7 @@ if (is_jumping &amp;&amp; can_peck) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>charge += 0.15 * power(0.7, global.level);
+            <string>charge += 0.10 * power(0.7, global.level);
 
 with(other){
     instance_destroy();

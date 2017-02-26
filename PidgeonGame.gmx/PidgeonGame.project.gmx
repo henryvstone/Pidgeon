@@ -32,10 +32,14 @@
     <sprite>sprites\sprite_car2</sprite>
     <sprite>sprites\sprite_car3</sprite>
     <sprite>sprites\sprite_gameover</sprite>
+    <sprite>sprites\sprite_fountain</sprite>
+    <sprite>sprites\sprite_bench</sprite>
+    <sprite>sprites\sprite_tree</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_level1</background>
     <background>background\background1</background>
+    <background>background\background2</background>
   </backgrounds>
   <paths name="paths"/>
   <shaders name="shaders">
@@ -62,10 +66,15 @@
     <object>objects\object_lamp</object>
     <object>objects\object_bin</object>
     <object>objects\object_fence</object>
+    <object>objects\object_fountain</object>
+    <object>objects\obj_bench</object>
+    <object>objects\object_tree</object>
     <object>objects\object_cant_jump</object>
+    <object>objects\object_startbutton</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\rm_begin</room>
+    <room>rooms\rm_game</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -53,15 +53,15 @@
   <instances>
     <instance objName="object_pidgeon" x="352" y="672" name="inst_9C80965A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_left" x="1062" y="366" name="inst_CE1A9084" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_sprtie_redir" x="500" y="348" name="inst_4455C95C" locked="0" code="" scaleX="0.879999995231628" scaleY="0.903225779533386" colour="4294967295" rotation="0"/>
-    <instance objName="obj_sprtie_redir" x="498" y="598" name="inst_5BA5D383" locked="0" code="" scaleX="1.19000005722046" scaleY="1.125" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sprtie_redir" x="346" y="344" name="inst_4455C95C" locked="0" code="" scaleX="0.879999995231628" scaleY="0.903225779533386" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sprtie_redir" x="346" y="592" name="inst_5BA5D383" locked="0" code="" scaleX="1.19000005722046" scaleY="1.125" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_right" x="-54" y="616" name="inst_7181F1B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_right" x="-52" y="372" name="inst_7F0FCB4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_left" x="1062" y="626" name="inst_31950175" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_left" x="1064" y="180" name="inst_5F1D5B70" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_right" x="-50" y="182" name="inst_1756E02E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object_lamp" x="94" y="700" name="inst_F386A0D1" locked="0" code="" scaleX="0.523605167865753" scaleY="0.609195411205292" colour="4294967295" rotation="0"/>
-    <instance objName="object_bin" x="876" y="504" name="inst_691C9775" locked="0" code="" scaleX="0.709999978542328" scaleY="0.652849733829498" colour="4294967295" rotation="0"/>
+    <instance objName="object_lamp" x="94" y="700" name="inst_F386A0D1" locked="0" code="" scaleX="0.579999983310699" scaleY="0.732142865657806" colour="4294967295" rotation="0"/>
+    <instance objName="object_bin" x="892" y="536" name="inst_691C9775" locked="0" code="" scaleX="0.709999978542328" scaleY="0.652849733829498" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="70" y="388" name="inst_E5A2CF90" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="70" y="388" name="inst_63768DA7" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="70" y="388" name="inst_CAA3C365" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
@@ -75,6 +75,11 @@
     <instance objName="object_cant_jump" x="-48" y="90" name="inst_AB7BA627" locked="0" code="" scaleX="1.19000005722046" scaleY="22" colour="4294967295" rotation="0"/>
     <instance objName="object_cant_jump" x="1032" y="106" name="inst_7161B534" locked="0" code="" scaleX="0.875" scaleY="21.5" colour="4294967295" rotation="0"/>
     <instance objName="object_cant_jump" x="-8" y="774" name="inst_D860612B" locked="0" code="" scaleX="32.8125" scaleY="1.1875" colour="4294967295" rotation="0"/>
+    <instance objName="object_fountain" x="518" y="582" name="inst_5776BDD9" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sprtie_redir" x="634" y="598" name="inst_2FD3BAC9" locked="0" code="" scaleX="1.125" scaleY="1.1875" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sprtie_redir" x="626" y="350" name="inst_5120E818" locked="0" code="" scaleX="1.125" scaleY="1.0625" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bench" x="224" y="498" name="inst_216D1659" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="object_tree" x="698" y="442" name="inst_3ACD3378" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -101,7 +101,7 @@ if(collided &lt; 0){
         vx = 0;
         vy = speedc;
     }
-    collided = 1;
+    collided = 2;
 }
     
 
