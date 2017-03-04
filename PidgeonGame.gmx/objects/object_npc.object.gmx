@@ -33,6 +33,8 @@ vy = 0;
 collided = 0;
 
 depth = -y;
+
+fly = false;
 </string>
           </argument>
         </arguments>
@@ -58,6 +60,10 @@ depth = -y;
             <string>x += vx * delta_time / 1000000;
 y += vy * delta_time / 1000000; 
 depth = -y;
+
+if(x &lt; -200 or y &lt; -200 or x &gt; room_width + 200 or y &gt; room_height + 200){
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -86,7 +92,7 @@ depth = -y;
     
 collided -= delta_time / 1000000;
     
-if(collided &lt; 0){
+if(collided &lt; 0 and !fly){
     var speedc = sqrt(vx * vx + vy * vy);
     
     var dir = irandom(2);

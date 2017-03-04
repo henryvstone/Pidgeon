@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sound_intro</sound>
+    <sound>sound\sound_looop</sound>
+    <sound>sound\sound_dist</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\sprite_food1</sprite>
     <sprite>sprites\sprite_food2</sprite>
@@ -35,6 +39,7 @@
     <sprite>sprites\sprite_fountain</sprite>
     <sprite>sprites\sprite_bench</sprite>
     <sprite>sprites\sprite_tree</sprite>
+    <sprite>sprites\sprite_pow</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_level1</background>
@@ -71,6 +76,8 @@
     <object>objects\object_tree</object>
     <object>objects\object_cant_jump</object>
     <object>objects\object_startbutton</object>
+    <object>objects\object_pow</object>
+    <object>objects\obj_stop_bullets</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_begin</room>

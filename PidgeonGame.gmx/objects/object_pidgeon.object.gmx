@@ -25,11 +25,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///music
+audio_play_sound(sound_looop, 1, true);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// Variable Creation
 
 px = room_width / 2; //starting position x
 py = room_height / 2; //starting position y
 pz = 0; //starting position z, currently not implemented
+vz = 0;
 
 moveSpeed = 300; // pixels per second
 defaultMoveSpeed = 300;
@@ -121,10 +144,9 @@ depth = y;
           <argument>
             <kind>1</kind>
             <string>/// No more jumping
-image_angle = 0;
-is_jumping = false;
-pz = 0;
-moveSpeed = defaultMoveSpeed;
+//image_angle = 0;
+//is_jumping = false;
+//moveSpeed = defaultMoveSpeed;
 </string>
           </argument>
         </arguments>
@@ -155,6 +177,9 @@ var moveDown = keyboard_check(ord("S"));
 var moveLeft = keyboard_check(ord("A"));
 var moveRight = keyboard_check(ord("D"));
 
+var oldpx = px;
+var oldpy = py;
+
 // Left-Right
 var lr = 0;
 if(moveLeft){lr -= 1;}
@@ -181,17 +206,38 @@ if(lr != 0 or ud != 0){
 
 
 // Collisions
-if((place_meeting(x, py, object_cant_walk) &amp;&amp; !is_jumping) || place_meeting(x, py, object_cant_jump)){
-    py = y;
-}else{
-    y = py;
+if((place_meeting(oldpx, py, object_cant_walk) &amp;&amp; pz &lt; 30) || place_meeting(oldpx, py, object_cant_jump)){
+    py = oldpy;
 }
 
-if((place_meeting(px, y, object_cant_walk) &amp;&amp; !is_jumping) || place_meeting(px, y, object_cant_jump)){
-    px = x;
-}else{
-    x = px;
-} 
+if((place_meeting(px, oldpy, object_cant_walk) &amp;&amp; pz &lt; 30) || place_meeting(px, oldpy, object_cant_jump)){
+    px = oldpx;
+}
+
+vz -= 2000 * delta_time / 1000000;
+pz += vz * delta_time / 1000000;
+if(pz &lt; 0){
+    pz = 0;
+    vz = 0;
+    
+    
+    //bad code 101
+    var a = 0;
+    var s = 1;
+    while(place_meeting(px, py + a * s, object_cant_walk)){
+        a += 1;
+        s *= -1;
+        if(place_meeting(px, py + a * s, object_cant_walk)){
+            s *= -1;
+        }else{
+            break;
+        }
+    }
+    py += a * s;
+}
+
+x = px;
+y = py - pz;
 
 charge -= delta_time / 1000000 * decharge;
 
@@ -217,9 +263,9 @@ charge -= delta_time / 1000000 * decharge;
           <argument>
             <kind>1</kind>
             <string>/// Jump animation
-if (is_jumping) {
-    image_angle = random(360);
-}
+//if (is_jumping) {
+//    image_angle = random(360);
+//}
 </string>
           </argument>
         </arguments>
@@ -310,13 +356,11 @@ if (restart_key &amp;&amp; global.gameover) {
             <kind>1</kind>
             <string>/// Update depth
 
-depth = -y;
+depth = -py;
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="4" ename="object_npc_car">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -333,43 +377,20 @@ depth = -y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!is_jumping &amp;&amp; can_be_hit) {
-    charge -= 1.00;
-    can_be_hit = false;
-    alarm[1] = car_hit_delay;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="object_npc_enemy">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Pecking
+            <string>///colide car
 
-if (is_jumping &amp;&amp; can_peck) {
-    with (other) {
-        will_shoot = false;
-        vx = vx * 2;
-        vy = vy * 2;
+hit = false;
+
+
+if(place_meeting(px, py, object_npc_car) and pz &lt; 30){
+    if (!hit &amp;&amp; can_be_hit) {
+        charge -= 1.00;
+        can_be_hit = false;
+        alarm[1] = car_hit_delay;
     }
-    can_peck = false;
-    alarm[2] = peck_delay;
+    hit = true;
+}else{
+    hit=false;
 }
 </string>
           </argument>
@@ -396,9 +417,55 @@ if (is_jumping &amp;&amp; can_peck) {
             <string>/// Lose charge upon hit of bullet
 
 if (!is_jumping) {
-    charge -= 0.05;
+    charge -= 0.12;
     with(other){
         instance_destroy();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="object_npc_enemy">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Pecking
+
+if (can_peck) {
+    if(global.level &gt;= 1){
+        with (other) {
+            will_shoot = false;
+            vx = vx * 2;
+            vy = vy * 2;
+        }
+        if(global.level &gt; 2){
+            with(other){
+                fly = true;
+                vx = random(1000) - 500;
+                vy = random(1000) - 500;
+                alarm[2] = -1;
+            }
+        }
+        can_peck = false;
+        alarm[2] = peck_delay;
+        
+        var pow = instance_create(x,y - sprite_height * 0.6,object_pow);
+        pow.size = 1;
     }
 }
 </string>
@@ -425,18 +492,30 @@ if (!is_jumping) {
             <kind>1</kind>
             <string>/// Pecking
 
-if (is_jumping &amp;&amp; can_peck) {
-    with (other) {
-        var dist = 50;
-        var foodnum = irandom(2) + 3;
-        for(var i = 0;i &lt; foodnum;i++){
-            instance_create(x + random(dist * 2) - dist, y + random(dist * 2) - dist, object_food);
+if (can_peck) {
+    if(global.level &gt;= 1){
+        with (other) {
+            var dist = 50;
+            var foodnum = irandom(2) + 3;
+            for(var i = 0;i &lt; foodnum;i++){
+                instance_create(x + random(dist * 2) - dist, y + random(dist * 2) - dist, object_food);
+            }
+            vx = vx * 2;
+            vy = vy * 2;
         }
-        vx = vx * 2;
-        vy = vy * 2;
+        if(global.level &gt; 2){
+            with(other){
+                fly = true;
+                vx = random(1000) - 500;
+                vy = random(1000) - 500;
+            }
+        }
+        can_peck = false;
+        alarm[2] = peck_delay;
+        var pow = instance_create(x,y - sprite_height * 0.6,object_pow);
+        pow.size = global.level / 2;
     }
-    can_peck = false;
-    alarm[2] = peck_delay;
+    
 }
 </string>
           </argument>
@@ -488,6 +567,7 @@ with(other){
           <argument>
             <kind>1</kind>
             <string>draw_self();
+draw_sprite_ext(sprite_index, 0, px, py, 1, -1, 0, make_colour_rgb(0,0,0), 0.5);
 var ux = 0;
 var uy = window_get_height() - 20;
 var width = window_get_width();
@@ -531,11 +611,11 @@ if (charge &lt;= -1) {
             <kind>1</kind>
             <string>/// Jump mechanics
 
-if (!is_jumping) {
-    alarm[0] = jump_duration;
-    pz = 1;
-    is_jumping = true;
-    moveSpeed = defaultJumpSpeed;
+if (pz == 0) {
+    //alarm[0] = jump_duration;
+    vz = 600;
+    //is_jumping = true;
+    //moveSpeed = defaultJumpSpeed;
 }
 </string>
           </argument>

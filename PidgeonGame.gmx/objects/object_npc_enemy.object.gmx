@@ -37,7 +37,67 @@ alarm[1] = shoot_delay;
 //path_start(path_test, 5, path_action_continue, false);
 // own_gun = instance_create(x, y, object_gun);
 
-will_shoot = true;
+alarm[2] = (random(2) + 3) * room_speed;
+
+will_shoot = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>will_shoot = false;
+
+vx = tvx;
+vy = tvy;
+
+alarm[2] = (random(2) + 3) * room_speed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>will_shoot = true;
+
+tvx = vx;
+tvy = vy;
+vx = 0;
+vy = 0;
+
+alarm[3] = 3 * room_speed;
 </string>
           </argument>
         </arguments>
@@ -61,11 +121,10 @@ will_shoot = true;
           <argument>
             <kind>1</kind>
             <string>/// Shoot a bullet
-
+alarm[1] = shoot_delay;
 if (will_shoot) {
-    alarm[1] = shoot_delay;
-    var new_bullet = instance_create(x, y, object_bullet);
-    new_bullet.direction = point_direction(x, y, object_pidgeon.x, object_pidgeon.y);
+    var new_bullet = instance_create(x, y-60, object_bullet);
+    new_bullet.direction = point_direction(x, y-60, object_pidgeon.x, object_pidgeon.y);
 }
 </string>
           </argument>

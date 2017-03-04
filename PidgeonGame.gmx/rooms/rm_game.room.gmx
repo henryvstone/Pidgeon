@@ -51,7 +51,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="object_pidgeon" x="352" y="672" name="inst_9C80965A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object_pidgeon" x="848" y="652" name="inst_9C80965A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_left" x="1062" y="366" name="inst_CE1A9084" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sprtie_redir" x="346" y="344" name="inst_4455C95C" locked="0" code="" scaleX="0.879999995231628" scaleY="0.903225779533386" colour="4294967295" rotation="0"/>
     <instance objName="obj_sprtie_redir" x="346" y="592" name="inst_5BA5D383" locked="0" code="" scaleX="1.19000005722046" scaleY="1.125" colour="4294967295" rotation="0"/>
@@ -75,11 +75,14 @@
     <instance objName="object_cant_jump" x="-48" y="90" name="inst_AB7BA627" locked="0" code="" scaleX="1.19000005722046" scaleY="22" colour="4294967295" rotation="0"/>
     <instance objName="object_cant_jump" x="1032" y="106" name="inst_7161B534" locked="0" code="" scaleX="0.875" scaleY="21.5" colour="4294967295" rotation="0"/>
     <instance objName="object_cant_jump" x="-8" y="774" name="inst_D860612B" locked="0" code="" scaleX="32.8125" scaleY="1.1875" colour="4294967295" rotation="0"/>
-    <instance objName="object_fountain" x="518" y="582" name="inst_5776BDD9" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="object_fountain" x="510" y="588" name="inst_5776BDD9" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_sprtie_redir" x="634" y="598" name="inst_2FD3BAC9" locked="0" code="" scaleX="1.125" scaleY="1.1875" colour="4294967295" rotation="0"/>
     <instance objName="obj_sprtie_redir" x="626" y="350" name="inst_5120E818" locked="0" code="" scaleX="1.125" scaleY="1.0625" colour="4294967295" rotation="0"/>
     <instance objName="obj_bench" x="224" y="498" name="inst_216D1659" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="object_tree" x="698" y="442" name="inst_3ACD3378" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stop_bullets" x="458" y="510" name="inst_D7325C67" locked="0" code="" scaleX="3.29032254219055" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stop_bullets" x="684" y="378" name="inst_9F9A72FE" locked="0" code="" scaleX="0.9375" scaleY="2.3125" colour="4294967295" rotation="0"/>
+    <instance objName="obj_stop_bullets" x="864" y="460" name="inst_63B55C05" locked="0" code="" scaleX="1.80645155906677" scaleY="2.38000011444092" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
