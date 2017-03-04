@@ -83,6 +83,7 @@ time -= delta_time / 1000000;
 //if triggered
 if(time &lt; 0){
     with(instance_create(x, y, object_npc_car)){
+        image_xscale = -1;
         vx = other.vx;
         vy = other.vy;
     }
