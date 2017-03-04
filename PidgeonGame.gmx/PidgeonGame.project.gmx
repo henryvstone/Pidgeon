@@ -44,6 +44,7 @@
     <background>background\background_level1</background>
     <background>background\background1</background>
     <background>background\background2</background>
+    <background>background\bg_info</background>
   </backgrounds>
   <paths name="paths"/>
   <shaders name="shaders">
@@ -75,12 +76,15 @@
     <object>objects\object_tree</object>
     <object>objects\object_cant_jump</object>
     <object>objects\object_startbutton</object>
+    <object>objects\obj_infobutton</object>
     <object>objects\object_pow</object>
     <object>objects\obj_stop_bullets</object>
+    <object>objects\obj_info</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_begin</room>
     <room>rooms\rm_game</room>
+    <room>rooms\rm_info</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
