@@ -58,7 +58,7 @@ moveSpeed = 300; // pixels per second
 defaultMoveSpeed = 300;
 defaultJumpSpeed = 600;
 charge = -0.5; //starting charge
-decharge = 0.01; //amount of decrease per second, 1 is max charge 0 is no charge
+decharge = 0.03; //amount of decrease per second, 1 is max charge 0 is no charge
 evil = 0;
 
 global.level = 0;
@@ -73,6 +73,8 @@ car_hit_delay = 100;
 
 can_peck = true;
 peck_delay = 60;
+
+image_speed = 0.2;
 
 depth = y;
 </string>
@@ -297,13 +299,10 @@ if (charge &gt;= -1 &amp;&amp; charge &lt; 0) {
 } else if (charge &gt;= 1 &amp;&amp; charge  &lt; 2) {
     global.level = 2;
     sprite_index = sprite_base + 2;
-} else if (charge &gt;= 2) {
-    global.level = 3;
-    sprite_index = sprite_base + 3;
 } else if (charge &lt;= -1) {
     global.level = -1
     global.gameover = true;
-    sprite_index = sprite_base + 4;
+    sprite_index = sprite_base + 3;
 } else {
     sprite_index = sprite_base;
 }
@@ -453,7 +452,7 @@ if (can_peck) {
             vx = vx * 2;
             vy = vy * 2;
         }
-        if(global.level &gt; 2){
+        if(global.level &gt; 1){
             with(other){
                 fly = true;
                 vx = random(1000) - 500;
@@ -503,7 +502,7 @@ if (can_peck) {
             vx = vx * 2;
             vy = vy * 2;
         }
-        if(global.level &gt; 2){
+        if(global.level &gt; 1){
             with(other){
                 fly = true;
                 vx = random(1000) - 500;
@@ -539,7 +538,7 @@ if (can_peck) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>charge += 0.10 * power(0.7, global.level);
+            <string>charge += 0.10 * power(0.5, global.level);
 
 with(other){
     instance_destroy();
@@ -567,7 +566,7 @@ with(other){
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_sprite_ext(sprite_index, 0, px, py, 1, -1, 0, make_colour_rgb(0,0,0), 0.5);
+draw_sprite_ext(sprite_index, image_index, px, py, 1, -1, 0, make_colour_rgb(0,0,0), 0.5);
 var ux = 0;
 var uy = window_get_height() - 20;
 var width = window_get_width();
@@ -575,12 +574,12 @@ var height  = 20;
 
 
 draw_set_colour(make_colour_rgb(150, 0, 0));
-draw_rectangle(ux, uy, ux + (width * (charge + 1) / 5), uy + height, false);
+draw_rectangle(ux, uy, ux + (width * (charge + 1) / 4), uy + height, false);
 draw_set_colour(make_colour_rgb(0, 0, 0));
 draw_rectangle(ux, uy, ux + width, uy + height, true);
 
-for(var i = 0;i &lt;= 4;i++){
-    draw_line(ux + (width * (i + 1) / 5), uy, ux + (width * (i + 1) / 5), uy + height);
+for(var i = 0;i &lt;= 3;i++){
+    draw_line(ux + (width * (i + 1) / 4), uy, ux + (width * (i + 1) / 4), uy + height);
 }
 
 if (charge &lt;= -1) {

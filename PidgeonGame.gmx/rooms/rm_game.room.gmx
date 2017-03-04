@@ -58,14 +58,12 @@
     <instance objName="obj_spawner_right" x="-54" y="616" name="inst_7181F1B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_right" x="-52" y="372" name="inst_7F0FCB4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_left" x="1062" y="626" name="inst_31950175" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner_left" x="1064" y="180" name="inst_5F1D5B70" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_right" x="-50" y="182" name="inst_1756E02E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object_lamp" x="94" y="700" name="inst_F386A0D1" locked="0" code="" scaleX="0.579999983310699" scaleY="0.732142865657806" colour="4294967295" rotation="0"/>
     <instance objName="object_bin" x="892" y="536" name="inst_691C9775" locked="0" code="" scaleX="0.709999978542328" scaleY="0.652849733829498" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="70" y="388" name="inst_E5A2CF90" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="70" y="388" name="inst_63768DA7" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="70" y="388" name="inst_CAA3C365" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
-    <instance objName="object_fence" x="226" y="386" name="inst_FB273D0A" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="70" y="388" name="inst_9669D9EB" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="930" y="390" name="inst_1B1C84CB" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
     <instance objName="object_fence" x="776" y="390" name="inst_AA633BAC" locked="0" code="" scaleX="0.691588759422302" scaleY="0.582456111907959" colour="4294967295" rotation="0"/>
@@ -79,10 +77,11 @@
     <instance objName="obj_sprtie_redir" x="634" y="598" name="inst_2FD3BAC9" locked="0" code="" scaleX="1.125" scaleY="1.1875" colour="4294967295" rotation="0"/>
     <instance objName="obj_sprtie_redir" x="626" y="350" name="inst_5120E818" locked="0" code="" scaleX="1.125" scaleY="1.0625" colour="4294967295" rotation="0"/>
     <instance objName="obj_bench" x="224" y="498" name="inst_216D1659" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="object_tree" x="698" y="442" name="inst_3ACD3378" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="object_tree" x="698" y="436" name="inst_3ACD3378" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_stop_bullets" x="458" y="510" name="inst_D7325C67" locked="0" code="" scaleX="3.29032254219055" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_stop_bullets" x="684" y="378" name="inst_9F9A72FE" locked="0" code="" scaleX="0.9375" scaleY="2.3125" colour="4294967295" rotation="0"/>
     <instance objName="obj_stop_bullets" x="864" y="460" name="inst_63B55C05" locked="0" code="" scaleX="1.80645155906677" scaleY="2.38000011444092" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawner_left" x="1060" y="192" name="inst_7DECB60E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
